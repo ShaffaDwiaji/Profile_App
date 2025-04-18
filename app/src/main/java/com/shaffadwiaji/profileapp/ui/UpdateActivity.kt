@@ -1,5 +1,6 @@
 package com.shaffadwiaji.profileapp.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -68,7 +69,12 @@ class UpdateActivity : AppCompatActivity() {
         updatedUser?.let {
             userViewModel.updateUser(it)
             Toast.makeText(this, "Profile berhasil diupdate", Toast.LENGTH_SHORT).show()
+
+            val intent = Intent(this, HomeActivity::class.java)
+            intent.putExtra("email", it.email) // kirim email kembali ke Home
+            startActivity(intent)
             finish()
         }
+
     }
 }

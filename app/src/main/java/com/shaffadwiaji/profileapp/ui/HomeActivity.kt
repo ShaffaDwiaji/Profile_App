@@ -13,6 +13,7 @@ import com.shaffadwiaji.profileapp.databinding.ActivityHomeBinding
 import com.shaffadwiaji.profileapp.viewmodel.UserViewModel
 import kotlinx.coroutines.launch
 
+
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding
@@ -55,5 +56,20 @@ class HomeActivity : AppCompatActivity() {
             finish()
         }
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        userEmail?.let { email ->
+            lifecycleScope.launch {
+                val user = userViewModel.getUserByEmail(email)
+                user?.let {
+                    binding.tvName.text = it.name
+                    binding.tvEmail.text = it.email
+                    binding.tvPhone.text = it.phone
+                    binding.tvAddress.text = it.address
+                }
+            }
+        }
     }
 }
