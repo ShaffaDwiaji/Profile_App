@@ -42,7 +42,7 @@ class HomeActivity : AppCompatActivity() {
 
         // Navigasi ke update profile
         binding.btnUpdateProfile.setOnClickListener {
-            val intent = Intent(this, UpdateProfileActivity::class.java).apply {
+            val intent = Intent(this, UpdateActivity::class.java).apply {
                 putExtra("email", userEmail)
             }
             startActivity(intent)
