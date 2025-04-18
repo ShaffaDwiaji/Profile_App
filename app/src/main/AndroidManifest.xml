@@ -13,6 +13,18 @@
         android:theme="@style/Theme.ProfileApp"
         tools:targetApi="31">
         <activity
+            android:name=".ui.UpdateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.HomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.RegisterActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
