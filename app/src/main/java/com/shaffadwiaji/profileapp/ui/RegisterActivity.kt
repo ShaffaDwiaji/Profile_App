@@ -26,6 +26,10 @@ class RegisterActivity : AppCompatActivity() {
         binding.btnRegister.setOnClickListener {
             registerUser()
         }
+
+        binding.tvToLogin.setOnClickListener {
+            startActivity(Intent(this, LoginActivity::class.java))
+        }
     }
 
     private fun registerUser() {
